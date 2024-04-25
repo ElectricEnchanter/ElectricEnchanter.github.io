@@ -5,12 +5,21 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "post")
 public class Post {
+	public Post() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String title, anons, fullText;
 	private int views;
+
+	public Post(String title, String anons, String fullText) {
+		this.title = title;
+		this.anons = anons;
+		this.fullText = fullText;
+	}
 
 	public String getTitle() {
 		return title;
@@ -51,4 +60,6 @@ public class Post {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 }

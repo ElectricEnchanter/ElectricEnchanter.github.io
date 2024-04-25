@@ -26,13 +26,14 @@
 </nav>
 <p th:text="|Hello, ${title}!|" />
 
-<div class="container mt-5">
-    <h1>Блог сайта</h1>
-    <div th:each="el : ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${el.title}"/>
-        <p th:text="${el.anons}"/>
-        <a th:href="'/blog/' + ${el.id}">Детальнее</a>
-    </div>
+<div class="container mt-5 mb-5">
+    <h1>Добавление статьи</h1>
+    <form action="/blog/add" method="post">
+    <input type="text" name="title" placeholder="Введите название" class="form-control"><br>
+    <input type="text" name="anons" placeholder="Введите анонс" class="form-control"><br>
+    <textarea name="fullText" placeholder="Введите текст" class="form-control"></textarea><br>
+    <button type="submit" class="btn btn-success">Добавить статью</button>
+    </form>
 </div>
 
 <div th:insert="blocks/foooter :: footer"></div>
